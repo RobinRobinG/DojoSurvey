@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Dojo Survey</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>Dojo Survey</h1>
+        </div>
+        <form action="SubmitForm" method="POST">
+            <label for="name_field">Name: </label>
+            <input type="text" name="name" id="name_field">
+            <label for="location_field">Location: </label>
+            <select name="location" id="location_field">
+              @{
+                  foreach ( var location in @ViewBag.locations)
+                  {
+                    <option value="@location">@location</option>
+                  }
+              }
+            </select>
+            <label for="language_field">Language: </label>
+            <select name="language" id="language_field">
+              @{
+                  foreach ( var language in @ViewBag.languages)
+                  {
+                    <option value="@language">@language</option>
+                  }
+              }
+            </select>
+            <label for="comment_field">Comment: </label>
+            <textarea type="text" name="comment" id="comment_field"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
